@@ -16,6 +16,17 @@ async function findMany(disciplineId: number) {
   });
 }
 
+async function findById(id: number) {
+  return (
+    prisma.teacherDiscipline.findUnique({
+      where: {
+        id: id,
+      }
+    })
+  );
+}
+
 export default {
   findMany,
+  findById,
 };

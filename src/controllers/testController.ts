@@ -12,6 +12,13 @@ async function find(req: Request, res: Response) {
   res.send({ tests });
 }
 
+async function insert (req: Request, res: Response) {
+  const { name, pdfUrl, categoryId, teacherDisciplineId } = req.body;
+  await testService.insert(name, pdfUrl, Number(categoryId), Number(teacherDisciplineId));
+  res.sendStatus(201);
+}
+
 export default {
   find,
+  insert,
 };
