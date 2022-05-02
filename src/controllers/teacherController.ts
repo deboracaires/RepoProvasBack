@@ -2,7 +2,8 @@ import { Request, Response } from "express";
 import teacherService from "../services/teacherService.js";
 
 async function findMany(req: Request, res: Response) {
-  const teachers = await teacherService.findMany();
+  const disciplineId = req.params.disciplineId;
+  const teachers = await teacherService.findMany(Number(disciplineId));
   res.send({ teachers });
 }
 

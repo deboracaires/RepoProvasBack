@@ -5,7 +5,7 @@ import { ensureAuthenticatedMiddleware } from "../middlewares/ensureAuthenticate
 const teacherRouter = Router();
 
 teacherRouter.get(
-  "/teachers",
+  "/teachers/:disciplineId",
   ensureAuthenticatedMiddleware,
   teacherController.findMany
 );
